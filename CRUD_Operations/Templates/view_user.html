@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>View User</title>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	.inp_file{
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+	body{
+  font-family: sans-serif;
+  background-color: #000; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h4{
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+}
+.form-wrapper{
+  -webkit-box-shadow: 0px 1px 15px 0px rgba(255, 255, 255, 0.952);
+  -moz-box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);
+  box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);
+  border-radius: 5px;
+  background: #031321;
+  color: #ffffff;
+  padding: 50px;
+}
+.form-control, .custom-select{
+  border-radius: 0px;
+    color: #495057;
+    background-color: #f1f1f1;
+    border-color: none;
+   
+
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #ffffff;
+    border:1px solid #b5b6b3;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+.btn{
+  background: #3494E6;
+  border: #3494E6;
+  padding: 0.6rem 3rem;
+  font-weight: bold;
+}
+.btn:hover, .btn:focus, .btn:active, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  background: #3494E6;
+  border: #3494E6;
+  outline: 0;
+}
+	</style>
+ </head>
+ <body>
+  
+ <section class="contact-from pt-4">
+<div class="container">                
+                <div class="row mt-5">
+                    <div class="col-md-7 mx-auto">
+                      <div class="form-wrapper">
+                        <div class="row">
+                          
+						  </div>
+              <div class="col-md-8">
+                <h4 class="text-center" style="margin-left: 10rem;">User Details</h4>
+              </div>
+              <a href="/" style="position: relative; left:33rem; bottom: 6rem; text-decoration: none; color: #fff; font-size:20px; margin:0px; padding:0px;"><p>&#10006;</p></a>
+              <a href="/view" style="position: relative; right:1rem; bottom: 9rem; text-decoration: none; color: #fff; font-size:25px; font:bold"><p>&#x1F828;</p></a>
+						  <div class="row">
+						  <img src="/static/Uploads/{{row["profile_pic"]}}"  class="col-md-3 mb-2" style="position: relative; bottom: 5rem; left:12rem"/>
+      
+						  </div><br>
+						  <div class="row mt-3" style="position: relative; bottom: 5rem; font-size: 20px">
+						  <div class="col-md-6"> <label>Name :</label>
+						  {{row["name"]}}</div>
+						  <div class="col-md-6"> <label>Gender :</label>
+						  {{row["gender"]}}</div>
+						  <div class="col-md-6"> <label>Contact :</label>
+						  {{row["contact"]}}</div>
+						  <div class="col-md-6"> <label>Date Of Birth :</label>
+						  {{row["dob"]}}</div>
+						   <div class="col-md-6"> <label>Email :</label>
+						  {{row["email"]}}</div>
+						   <div class="col-md-6"><label>Age :</label> {{now_date}} Years </div>
+               </div>
+						  
+        <div class="row" style="width: 200px; margin-left: 1rem ">
+          <a href="{{ url_for('delete_user', id=row['id']) }}" class="btn btn-danger btn-outline-danger" type="button" style="background-color: red; color:white; position:relative; right:1.5rem"> Delete User</a>	
+          <a href="{{ url_for('edit_user', id=row['id']) }}" class="btn btn-primary" style="position: relative; left:17rem; bottom:2.5rem">Update User</a>
+        </div>
+					  
+						</div>
+						
+                </div>
+            </div>
+  
+  </div>
+  </section>
+ </body>
+ </html>  

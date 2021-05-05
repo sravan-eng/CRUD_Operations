@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <title>Edit User</title>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	.inp_file{
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+	body{
+  font-family: sans-serif;
+  border-radius: 5px;
+  background: #000;
+  color: #ffffff;/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+h4{
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  
+}
+.form-wrapper{
+  -webkit-box-shadow: 0px 1px 15px 0px rgba(255, 255, 255, 0.952);
+  -moz-box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);
+  box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);
+  border-radius: 5px;
+  padding: 50px;
+  background: #031321;
+}
+.form-control, .custom-select{
+  border-radius: 0px;
+    color: #495057;
+    background-color: #f1f1f1;
+    border-color: none;
+   
+
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #ffffff;
+    border:1px solid #b5b6b3;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+.btn{
+  background: #3494E6;
+  border: #3494E6;
+  padding: 0.6rem 3rem;
+  font-weight: bold;
+}
+.btn:hover, .btn:focus, .btn:active, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  background: #28547a;
+  border: #3494E6;
+  outline: 0;
+}
+	</style>
+ </head>
+ <body>
+  
+ <!--<table>
+ <tr><td>Name</td><td><input type = "text" name="name"></td></tr>
+ <tr><td>Email</td><td><input type="email" name="email"></td></tr>
+ <tr><td>Address</td><td><input type = "text" name="address"></td></tr>
+  <input type="file" name="file" />  
+ <tr><td><input type="submit" value="Submit"></td></tr>
+ </table>-->
+ <section class="contact-from pt-4">
+<div class="container">                
+                <div class="row mt-5">
+                    <div class="col-md-7 mx-auto">
+                      <div class="form-wrapper">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h4 style="margin-left: 12rem;">Edit form</h4>
+                          </div>
+                        </div>
+                        <a href="/" style="position: relative; left:33rem; bottom: 6rem; text-decoration: none; color: #fff; font-size:20px; margin:0px; padding:0px;"><p>&#10006;</p></a>
+              <a href="/view" style="position: relative; right:1rem; bottom: 9rem; text-decoration: none; color: #fff; font-size:25px; font:bold"><p>&#x1F828;</p></a>
+                        <form  method="post"  enctype="multipart/form-data" style="position: relative; bottom: 5rem"> 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type = "text" class="form-control" name = "name" value="{{ user['name'] }}">
+                                    </div>
+                                </div>                               
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type = "email" class="form-control" name = "email" value="{{ user['email'] }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> 
+									  <div class="form-check form-check-inline">
+										{% if user['gender'] ==  "Male" %}
+										<input class="form-check-input" name = "gender" type = "radio" name="inlineRadioOptions" id="inlineRadio1" value="Male" checked>
+										<label class="form-check-label" for="inlineRadio1">Male</label>
+										<input class="form-check-input" name = "gender" type = "radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
+										<label class="form-check-label" for="inlineRadio1">Female</label>
+										{% endif %}
+										
+									  </div>
+									   <div class="form-check form-check-inline">
+									   {% if user['gender'] ==  "Female" %}
+									   <input class="form-check-input" name = "gender" type = "radio" name="inlineRadioOptions" id="inlineRadio1" value="Male" >
+										<label class="form-check-label" for="inlineRadio1">Male</label>
+										<input class="form-check-input" name = "gender" type = "radio" name="inlineRadioOptions" id="inlineRadio2" value="Female" checked>
+										<label class="form-check-label" for="inlineRadio1">Female</label>
+										{% endif %}
+										
+									  </div>
+                                    </div>
+                                </div>
+                              
+                              <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type = "text" class="form-control" name = "contact" placeholder="Phone number" value="{{ user['contact'] }}">
+                                    </div>
+                                </div>
+                              
+                              <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type = "date" name = "dob" class="form-control" value="{{ user['dob']  }}">
+                                    </div>
+                               </div>
+							   <div class="col-md-6">
+                                    <div class="form-group">
+									
+                                    
+										<label class="form-check-label" >Already Uploaded Profile pic is: {{ user['profile_pic']  }} <br/> </label>
+                                    </div>
+                               </div>
+                        
+                            </div><br><br>
+      <div class="row">
+            <button class="btn btn-primary mx-auto">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+  
+  </div>
+  </section>
+ </body>
+ </html>  

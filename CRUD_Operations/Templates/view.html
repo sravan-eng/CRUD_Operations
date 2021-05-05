@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+   body{
+  font-family: sans-serif;
+  background-color: #000;
+  
+  overflow: hidden;
+  color:#fff; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+	.table-wrapper {
+		width: 100%;
+		margin: 30px auto;
+        padding: 20px;	
+        background-color: #000;
+        color: #fff;
+    }
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+        
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 20px;
+        
+    }
+    table.table {
+        table-layout: auto;
+        color: #fff;
+    }
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+</style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row"> 
+                    <div style="margin-left: 42rem;"><h2>Registered <b>User's</b></h2></div>   
+                </div>
+            </div>
+            <a href="/" style="position: relative; left:90rem; bottom: 3rem; text-decoration: none; color: #fff; font-size:20px"><p>&#10006;</p></a>
+            <div class="row">
+                <a href="/add" class="btn btn-primary mx-auto">Add User</a>	
+            </div>	<br><br>
+            <table class="table table-bordered" style="-webkit-box-shadow: 0px 1px 15px 0px rgba(255, 255, 255, 0.952);
+            -moz-box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);
+            box-shadow: 0px 1px 15px px rgba(255, 255, 255, 0.952);">
+                <thead>
+                    <tr style="text-align: center">
+						 <th>Name</th>
+						 <th>Email</th>   
+						 <th>Gender</th>
+						 <th>Number</th>
+						 <th>DOB</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+
+ <tr>
+ <td>{{row["name"]}}</td>
+ <td>{{row["email"]}}</td>
+ <td>{{row["gender"]}}</td>
+ <td>{{row["contact"]}}</td>
+ <td>{{row["dob"]}} </td><td align="center">
+				<a href="{{ url_for('view_user', id=row['id']) }}" class="text-success"><i class="fa fa-fw fa-eye"></i> View</a> |				
+                <a href="{{ url_for('edit_user', id=row['id']) }}" class="text-primary"><i class="fa fa-fw fa-edit"></i> Edit</a> | 
+                <a href="{{ url_for('delete_user', id=row['id']) }}" class="text-danger"><i class="fa fa-fw fa-trash"></i> Delete</a> |
+				<a href="{{ url_for('resize_user', id=row['id']) }}" class="text-info"><i class="fa fa-file-image-o"></i> Resize Profile</a>
+            </td>
+ </tr>
+ {% endfor %}    
+                  		         
+                </tbody>
+            </table>
+        </div>
+    </div>     
+</body>
+</html>

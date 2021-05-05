@@ -1,2 +1,1 @@
-# CRUD_Operations
-CRUD operations is a basic project done by using FLASK framework In which one can do the following operations (ADD, VIEW, DELETE, UPDATE, RESIZE-IMG) and ones the user details are entered, the data will be stored in the database an the database used here is SQL3, The special thing about this project is one can even upload the profile pic and even the image will be fetched depending on the use ID, this project is easy to use not too heavy, not too crowed and half of the styling is done using https://getbootstrap.com/ which is very reliable.
+

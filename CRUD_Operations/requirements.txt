@@ -1,0 +1,8 @@
+flask
+flask-login
+sqlite3
+os
+datetime
+glob
+resizeimage
+PIL
